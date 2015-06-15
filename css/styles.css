@@ -1,0 +1,97 @@
+/**
+ * त्रिकोण
+ */
+body {
+  background-color: #F4F2F0;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  margin: 0;
+  width: 100%;
+}
+img { max-width: 100%; }
+svg { max-height: 100%; }
+
+a { text-decoration: none; }
+a:hover { color: #ff4136; }
+
+header { height: 100vh; }
+
+main {
+  min-height: 50vh;
+  position: relative;
+  z-index: 1;
+}
+main::before,
+main::after {
+  content: ' ';
+  display: table;
+}
+main::after {
+  clear: both;
+}
+
+.title {
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: inline-block;
+  font-size: 6rem;
+  left: 2rem;
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  z-index: 0;
+}
+
+ol {
+  margin: 4rem 0 0 2rem;
+  padding: 0 2rem;
+}
+
+.item { font-size: 1.5rem; }
+.item a {
+  box-sizing: border-box;
+  display: block;
+  letter-spacing: 0.1rem;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+
+
+@media screen and (min-width: 48em) {
+  .title {
+    left: 6rem;
+    font-size: 12rem;
+  }
+  .item { font-size: 2rem; }
+  .item a { padding: 2rem 0; }
+  ol {
+    margin: 4rem 0 0 2rem;
+    padding: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 48em) and (max-width: 64em) {
+  .title {
+    left: 6rem;
+    font-size: 12rem;
+  }
+  .item { font-size: 2.5rem; }
+  ol {
+    margin: 4rem 0 0 2rem;
+    padding: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .title {
+    left: 8rem;
+    font-size: 12rem;
+  }
+  .item { font-size: 3rem; }
+  ol {
+    margin: 4rem 0 0 4rem;
+    padding: 0 4rem;
+  }
+}
