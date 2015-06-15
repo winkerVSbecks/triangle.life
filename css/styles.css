@@ -40,6 +40,7 @@ main::after {
   margin: 0;
   position: fixed;
   top: 50%;
+  transition: font .3s linear;
   z-index: 0;
 }
 
@@ -48,7 +49,10 @@ ol {
   padding: 0 2rem;
 }
 
-.item { font-size: 1.5rem; }
+.item {
+  font-size: 1.5rem;
+  transition: font .3s linear;
+}
 .item a {
   box-sizing: border-box;
   display: block;
@@ -59,10 +63,10 @@ ol {
 
 
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 40em) {
   .title {
     left: 6rem;
-    font-size: 12rem;
+    font-size: 8rem;
   }
   .item { font-size: 2rem; }
   .item a { padding: 2rem 0; }
@@ -72,12 +76,12 @@ ol {
   }
 }
 
-@media screen and (min-width: 48em) and (max-width: 64em) {
+@media screen and (min-width: 52em) and (max-width: 64em) {
   .title {
     left: 6rem;
-    font-size: 12rem;
+    font-size: 10rem;
   }
-  .item { font-size: 2.5rem; }
+  .item { font-size: 2.6rem; }
   ol {
     margin: 4rem 0 0 2rem;
     padding: 0 4rem;

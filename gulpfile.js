@@ -34,6 +34,12 @@ gulp.task('img', function() {
           .pipe(connect.reload());
 });
 
+gulp.task('misc', function() {
+  return gulp.src(['./CNAME', './LICENSE', './google34316d718c8bcc05.html'])
+          .pipe(gulp.dest('./build/img'))
+          .pipe(connect.reload());
+});
+
 gulp.task('index', function() {
   return gulp.src('./index.html')
           .pipe(minifyHTML({ spare:true }))
