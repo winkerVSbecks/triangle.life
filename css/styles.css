@@ -16,6 +16,7 @@ a:hover { color: #ff4136; }
 
 header { height: 100vh; }
 
+/* Main */
 main {
   min-height: 50vh;
   position: relative;
@@ -30,6 +31,7 @@ main::after {
   clear: both;
 }
 
+/* Title */
 .title {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
@@ -44,6 +46,7 @@ main::after {
   z-index: 0;
 }
 
+/* Projects List */
 ol {
   margin: 4rem 0 0 2rem;
   padding: 0 2rem;
@@ -61,7 +64,21 @@ ol {
   width: 100%;
 }
 
+/* Footer */
+footer {
+  padding: 2rem;
+}
 
+.links {
+  border-top-width: 1px;
+  border-top-style: solid;
+  padding: 1rem;
+  list-style: none;
+}
+.links__item {
+  display: inline-block;
+  padding-right: 1rem;
+}
 
 @media screen and (min-width: 40em) {
   .title {
