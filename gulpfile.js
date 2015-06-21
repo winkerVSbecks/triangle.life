@@ -59,7 +59,7 @@ gulp.task('default', ['build'], function() {
   });
 });
 
-gulp.task('gh-deploy', ['build'] function() {
+gulp.task('gh-deploy', ['build'], function() {
   return gulp.src('./build/**/*')
     .pipe(ghPages({
       remoteUrl: 'git@github.com:winkerVSbecks/triangle.life.git'
