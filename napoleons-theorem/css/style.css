@@ -1,6 +1,42 @@
-body { overflow: hidden; }
+body {
+  overflow: hidden;
+}
 
-#js-triangle { points: var(--triangle) }
-/* #js-side-c { points: var(--a) }
-#js-side-b { points: var(--a) }
-#js-side-a { points: var(--a) } */
+.▲ {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #0074d9;
+  color: #7fdbff;
+  width: 4rem;
+  display: block;
+  height: 2rem;
+  border-radius: 0.25rem;
+  width: 4rem;
+  height: 2rem;
+  font-size: 0.875rem;
+  line-height: 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.▲ {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: -webkit-transform .25s ease-out;
+  transition: -webkit-transform .25s ease-out;
+  transition: transform .25s ease-out;
+  transition: transform .25s ease-out, -webkit-transform .25s ease-out;
+}
+.▲:hover,
+.▲:focus {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.▲:active {
+  -webkit-transform: scale(.90);
+  transform: scale(.90);
+}
