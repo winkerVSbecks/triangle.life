@@ -1,0 +1,116 @@
+// Dom Nodes
+const triangle = document.querySelector('#js-triangle');
+const centroidTriangle = document.querySelector('#js-centroid-triangle');
+const handle1 = document.querySelector('#js-handle-1');
+const handle2 = document.querySelector('#js-handle-2');
+const handle3 = document.querySelector('#js-handle-3');
+
+const points$ = Rx.Observable.of([[100, 250], [150, 50], [300, 250]]);
+
+const triangle$ = points$.map(points => ({
+  points,
+  circumCenter: circumCenter(...points),
+}));
+
+// State: Main Triangle, Equilateral triangles and Centroid Triangle
+const state$ = triangle$
+  .map(({ points: [u, v, w], circumCenter }) => ({
+    triangle: [u, v, w],
+    a: eqTriangle(u, v),
+    b: eqTriangle(v, w),
+    c: eqTriangle(w, u),
+  }))
+  .map(({ triangle, a, b, c }) => ({
+    triangle,
+    a,
+    b,
+    c,
+    centroidTriangle: [centroid(a), centroid(b), centroid(c)],
+  }));
+
+// Convert state to SVG geometry and render
+const svgGeometry$ = state$
+  .map(({ triangle, a, b, c, centroidTriangle }) => {
+    return {
+      triangleD: [
+        'M',
+        triangle.join('L'),
+        'L',
+        a.join('L'),
+        'L',
+        b.join('L'),
+        'L',
+        c.join('L'),
+      ],
+      centroidTriangleD: ['M', centroidTriangle.join('L'), 'Z'],
+      handles: [a[1], b[1], c[1]],
+    };
+  });
+
+svgGeometry$
+  .subscribe(({ triangleD, centroidTriangleD, handles: [h1, h2, h3] }) => {
+    triangle.setAttribute('d', triangleD.join(''));
+    centroidTriangle.setAttribute('d', centroidTriangleD.join(''));
+    handle1.setAttribute('cx', h1[0]);
+    handle1.setAttribute('cy', h1[1]);
+    handle2.setAttribute('cx', h2[0]);
+    handle2.setAttribute('cy', h2[1]);
+    handle3.setAttribute('cx', h3[0]);
+    handle3.setAttribute('cy', h3[1]);
+  });
+
+/**
+ * Geometry
+ */
+function eqTriangle(u, v) {
+  return [u, apex(u, v), v];
+}
+
+function circumCenter([ax, ay], [bx, by], [cx, cy]) {
+  const d = (ax - cx) * (by - cy) - (bx - cx) * (ay - cy);
+  const x =
+    (((ax - cx) * (ax + cx) + (ay - cy) * (ay + cy)) / 2 * (by - cy) -
+      ((bx - cx) * (bx + cx) + (by - cy) * (by + cy)) / 2 * (ay - cy)) /
+    d;
+  const y =
+    (((bx - cx) * (bx + cx) + (by - cy) * (by + cy)) / 2 * (ax - cx) -
+      ((ax - cx) * (ax + cx) + (ay - cy) * (ay + cy)) / 2 * (bx - cx)) /
+    d;
+
+  return [x, y];
+}
+
+function centroid([[ux, uy], [vx, vy], [wx, wy]]) {
+  return [avg(ux, vx, wx), avg(uy, vy, wy)];
+}
+
+function apex([ux, uy], [vx, vy]) {
+  const cc = [200, 217.5];
+  const mp = [(vx + ux) / 2, (vy + uy) / 2];
+  const dir = [mp[0] - cc[0], mp[1] - cc[1]];
+
+  const h = triangleHeight([ux, uy], [vx, vy]);
+  const m = magnitude(dir);
+
+  const n = dir.map(s => s * h / m);
+  return [n[0] + cc[0], n[1] + cc[1]];
+}
+
+/**
+ * Utils
+ */
+function magnitude([x, y]) {
+  return (x ** 2 + y ** 2) ** 0.5;
+}
+
+function triangleHeight([ux, uy], [vx, vy]) {
+  return 3 ** 0.5 * dist([ux, uy], [vx, vy]) / 2;
+}
+
+function dist([ux, uy], [vx, vy]) {
+  return Math.sqrt((ux - vx) * (ux - vx) + (uy - vy) * (uy - vy));
+}
+
+function avg(t0, t1, t2) {
+  return (t0 + t1 + t2) / 3;
+}

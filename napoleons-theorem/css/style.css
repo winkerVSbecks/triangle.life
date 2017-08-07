@@ -1,0 +1,6 @@
+body { overflow: hidden; }
+
+#js-triangle { points: var(--triangle) }
+/* #js-side-c { points: var(--a) }
+#js-side-b { points: var(--a) }
+#js-side-a { points: var(--a) } */
