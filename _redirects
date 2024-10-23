@@ -1,0 +1,7 @@
+# Netlify redirects file, edit with your domain
+
+# https://www.netlify.com/docs/redirects/
+
+/ /shatter/
+
+/shatter/\* https://shatter-triangle.netlify.app/shatter/ 200
