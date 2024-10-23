@@ -2,6 +2,4 @@
 
 # https://www.netlify.com/docs/redirects/
 
-/ /shatter/
-
-/shatter/\* https://shatter-triangle.netlify.app/shatter/ 200
+/shatter/* https://shatter-triangle.netlify.app/shatter/:splat 200
