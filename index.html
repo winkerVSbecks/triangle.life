@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Basic Page Needs -->
     <meta charset="utf-8" />
-    <title>triangle.life</title>
-    <!-- Mobile Specific Metas -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <!-- fonts -->
     <link
       href="//fonts.googleapis.com/css?family=Rajdhani:700"
       rel="stylesheet"
@@ -18,14 +14,14 @@
     <!-- styles -->
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Primary Meta Tags -->
-    <title>triangle.life | त्रिकोण</title>
-    <meta name="title" content="triangle.life | त्रिकोण" />
+    <title>triangle.life</title>
+    <meta name="title" content="triangle.life" />
     <meta name="description" content="All the triangles" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://triangle.life/" />
-    <meta property="og:title" content="triangle.life | त्रिकोण" />
+    <meta property="og:title" content="triangle.life" />
     <meta property="og:description" content="All the triangles" />
     <meta
       property="og:image"
@@ -35,7 +31,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://triangle.life/" />
-    <meta property="twitter:title" content="triangle.life | त्रिकोण" />
+    <meta property="twitter:title" content="triangle.life" />
     <meta property="twitter:description" content="All the triangles" />
     <meta
       property="twitter:image"
@@ -107,6 +103,20 @@
           <a class="navy" href="/napoleons-theorem/"> Napoleon's Theorem </a>
         </li>
         <li class="item">
+          <a class="navy" href="https://varun.ca/work/dragon-skin">
+            Dragon Skin
+          </a>
+        </li>
+        <li class="item">
+          <a class="navy" href="/napoleons-theorem/"> Napoleon's Theorem </a>
+        </li>
+        <li class="item">
+          <a class="navy" href="/flatland/"> Flatland </a>
+        </li>
+        <li class="item">
+          <a class="navy" href="/shaders/"> Shaders </a>
+        </li>
+        <li class="item">
           <a class="navy" href="/shatter/"> Shatter </a>
         </li>
       </ol>
@@ -115,39 +125,27 @@
     <footer>
       <ul class="links border--gray">
         <li class="links__item">
-          <a class="gray" href="https://twitter.com/winkerVSbecks">
-            @winkerVSbecks
-          </a>
+          <a class="gray" href="https://varun.ca"> varun.ca </a>
         </li>
         <li class="links__item">
-          <a class="gray" href="http://varun.ca"> varun.ca </a>
+          <a class="gray" href="https://bento.me/varun"> bento.me/varun </a>
         </li>
       </ul>
     </footer>
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7JYRVNGTR7"
+    ></script>
     <script>
-      (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "//www.google-analytics.com/analytics.js",
-        "ga"
-      );
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      ga("create", "UA-22315045-13", "auto");
-      ga("send", "pageview");
+      gtag("config", "G-7JYRVNGTR7");
     </script>
   </body>
 </html>

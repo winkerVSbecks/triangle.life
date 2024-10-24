@@ -1,0 +1,30 @@
+.g0 {
+  gap: 0;
+}
+.g1 {
+  gap: 0.25rem;
+}
+.g2 {
+  gap: 0.5rem;
+}
+.g3 {
+  gap: 1rem;
+}
+.g4 {
+  gap: 2rem;
+}
+.g5 {
+  gap: 4rem;
+}
+.g6 {
+  gap: 8rem;
+}
+.g7 {
+  gap: 16rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
